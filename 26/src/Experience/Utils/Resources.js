@@ -8,12 +8,10 @@ export default class Resources extends EventEmitter
     {
         super()
 
-        // Options
         this.sources = sources
 
-        // Setup
         this.items = {}
-        this.toLoad = this.sources.lenght
+        this.toLoad = this.sources.length
         this.loaded = 0
 
         this.setLoaders()
@@ -59,7 +57,7 @@ export default class Resources extends EventEmitter
                     source.path,
                     (file) =>
                     {
-                            this.sourceLoaded(source, file)
+                        this.sourceLoaded(source, file)
                     }
                 )
             }
@@ -72,7 +70,7 @@ export default class Resources extends EventEmitter
 
         this.loaded++
 
-        if(this.laoded === this.toLoad)
+        if(this.loaded === this.toLoad)
         {
             this.trigger('ready')
         }
